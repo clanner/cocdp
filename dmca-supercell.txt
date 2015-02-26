@@ -1,0 +1,66 @@
+25.2.2015
+
+Cease and Desist Demand regarding Trademarks and Copyrights
+
+To whom it may concern,
+
+It has been brought to our attention that your business has been marketing,
+selling or otherwise making available products or services that may infringe
+Supercell Oy's copyrights and trademarks in the software games "Clash of
+Clans", "Hay Day", "Boom Beach" and other games and related merchandise
+("Supercell Assets").
+
+We have a good faith belief that use of the material in the manner complained
+of is not authorized by the copyright owner, its agent, or the law. We assure
+that the notification is accurate, and under penalty of perjury, that we are
+authorized to act on behalf of the owner of an exclusive right that is
+allegedly infringed. We have read and understand GitHub's Guide to Filing a
+DMCA Notice. This letter constitutes both a trademark and a DCMA complaint.
+
+Location of potential infringement:
+https://github.com/clanner/cocdp/tree/master/assets/csv
+https://github.com/clanner/cocdp/tree/master/assets/sc
+https://github.com/clanner/cocdp/tree/master/assets/logic
+
+Supercell Assets are developed and published by a Finnish company Supercell Oy.
+All intellectual property rights to Supercell Assets are owned by Supercell Oy,
+including copyright to the game characters and internationally registered
+trademarks. Supercell Oy's copyright to Supercell Assets' characters and
+international trademark registrations of the words "CLASH OF CLANS", "HAY DAY"
+and "BOOM BEACH" provide Supercell Oy with certain proprietary rights. This
+includes the right to restrict the use of copyrighted works and/or trademarks,
+or a confusingly similar works or trademarks, in association with confusingly
+similar products or services.
+
+Supercell Oy's trademark registrations include, but are not limited to, the
+registration of the word marks CLASH OF CLANS, HAY DAY and BOOM BEACH by
+European Union Community Trademarks (no: 011158086, 1156712 and 012661864) and
+United States Trademark and Patent Office registration (no: 4327980).
+
+Your use of Supercell Oy's copyright and/or registered trademarks is likely to
+confuse consumers and/or lessen the distinctiveness of Supercell Oy's brand.
+Your continued use of Supercell Oy's copyrights and/or registered trademarks
+will cause significant and irreparable damage to Supercell Oy.
+
+Supercell Oy demands that you immediately:
+
+1. cease and desist any further use of images, emblems, logos or similar items
+   infringing Supercell Oy's copyrights in association with the manufacture,
+   marketing, sale, distribution, or identification of your products or services;
+   and
+
+2. cease and desist any further use of Supercell Oy's trademarks in association
+   with the manufacture, marketing, sale, distribution, or identification of your
+   products or services.
+
+This is written without any prejudice. Supercell Oy reserves the right to claim
+damages as well as any other remedy under applicable copyright and trademark
+legislation, but we hope this issue may be resolved without any further legal
+actions.
+
+Should you have any questions regarding this letter, please contact us at
+[private]
+
+Respectfully on behalf of Supercell Oy,
+
+[private]
