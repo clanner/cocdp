@@ -20,3 +20,7 @@
 * [The Bytecode Club](https://the.bytecode.club/)
 * [UltraPowa](http://www.ultrapowa.com/forum)
 
+# assets
+
+... Sigh: some stupid lawyer dude goes pushing around the poor people of github, and forces them to ask me to remove the unzipped asset files.
+
