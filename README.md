@@ -7,7 +7,9 @@
 * [Csv Files](../../wiki/Csv Files)
 * [Sc Files](../../wiki/Sc Files), and all the [Bitmaps](../../wiki/Bitmaps)
 * [Versions](../../wiki/Versions)
-* [Servers](../../wiki/Servers)
+* The protocol is quite similar to that of [Hayday](../../wiki/HaydayProtocol) and BoomBeach
+* [Servers](../../wiki/Servers) - list of clash of clans servers
+* [Configuration](../../wiki/Configuration) - how are your user credentials stored
 
 # links
 
