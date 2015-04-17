@@ -228,7 +228,7 @@ msgtypes= {
             "6.253":"? ? userid json shieldtime ? ? ? userid1 userid2 ? () ? ? ? ? ? username facebookid stars points diamonds diamonds2 ? ? trophies ? ? ? ? ? ? ? ? () ? ? resources []", #" units [] spells [] unit_upgrades [] spell_upgrades [] hero_upgrades [] hero_health [] here_state [] alliance_units [] ? [] ? [] achievements [] npcprogress [] npc_gold [] npc_elixer []",
             "6.322":"? ? timestamp ? userid json shieldtime ? ? ? userid1 userid2 ? () ? () ? () ? ? ? ? ? username facebookid stars points diamonds diamonds2 ? ? trophies ? ? ? ? ? ? ? ? () ? ? ? resources []", # " units [] spells [] unit_upgrades [] spell_upgrades [] hero_upgrades [] hero_health [] here_state [] alliance_units [] ? [] ? [] achievements [] npcprogress [] npc_gold [] npc_elixer []",
             "6.407":"? ? timestamp ? userid shieldtime ? ? ? compressed ? userid1 userid2 ? () ? () ? () ? ? ? ? ? username facebookid stars points diamonds diamonds2 ? ? trophies ? ? ? ? ? ? ? ? () ? ? ? resources []", # " units [] spells [] unit_upgrades [] spell_upgrades [] hero_upgrades [] hero_health [] here_state [] alliance_units [] ? [] ? [] achievements [] npcprogress [] npc_gold [] npc_elixer []",
-            "7.001":"? ? timestamp ? userid shieldtime ? ? ? compressed ? userid1 userid2 ? () ? () ? () ? ? ? ? ? username facebookid stars points diamonds diamonds2 ? ? trophies ? ? ? ? ? ? ? ? () ? ? ? ? resources []", # " units [] spells [] unit_upgrades [] spell_upgrades [] hero_upgrades [] hero_health [] here_state [] alliance_units [] ? [] ? [] achievements [] npcprogress [] npc_gold [] npc_elixer []",
+            "7.001":"? ? timestamp ? userid shieldtime ? ? ? compressed ? userid1 userid2 ? () ? () ? () ? ? ? ? ? username facebookid stars points diamonds diamonds2 ? ? trophies ? ? ? ? ? ? ? ? () ? ? ? ? storage [] resources [] units [] spells [] unit_upgrades [] spell_upgrades [] hero_upgrades [] hero_health [] hero_state [] alliance_units [unit quantity level] ? [] achievements [] npcprogress [] npc_gold [] npc_elixir []",
         },
     },
     24103:{"name":"AttackHomeFailed"},
@@ -239,17 +239,23 @@ msgtypes= {
             "format":{
                 "6.322":"dsddqsddddqq?(qsdd)?(q)?(q)dddddssdddddddddddddd?(q)bdd#[dd]#[dd]#[dd]#[dd]#[dd]#[dd]#[dd]#[dd]#[dd]#[ddd]#[d]#[d]#[dd]#[dd]#[dd]#[dd]dqq?(qsdd)?(q)?(q)dddddssdddddddddddddd?(q)bdd#[dd]#[dd]#[dd]#[dd]#[dd]#[dd]#[dd]#[dd]#[dd]#[ddd]#[d]#[d]#[dd]#[dd]#[dd]#[dd]db",
                 "6.407":"dsddqdddbsdqq?(qsdd)?(q)?(q)dddddssdddddddddddddd?(q)bdd#[dd]#[dd]#[dd]#[dd]#[dd]#[dd]#[dd]#[dd]#[dd]#[ddd]#[d]#[d]#[dd]#[dd]#[dd]#[dd]dqq?(qsdd)?(q)?(q)dddddssdddddddddddddd?(q)bdd#[dd]#[dd]#[dd]#[dd]#[dd]#[dd]#[dd]#[dd]#[dd]#[ddd]#[d]#[d]#[dd]#[dd]#[dd]#[dd]db",
-                "7.000..":"dsddqdddbsdqq?(qsddd)?(q)?(q)dddddssdddddddddddddd?(q)bddd#[dd]#[dd]#[dd]#[dd]#[dd]#[dd]#[dd]#[dd]#[dd]#[ddd]#[d]#[d]#[dd]#[dd]#[dd]#[dd]dqq?(qsddd)?(q)?(q)dddddssdddddddddddddd?(q)bddd#[dd]#[dd]#[dd]#[dd]#[dd]#[dd]#[dd]#[dd]#[dd]#[ddd]#[d]#[d]#[dd]#[dd]#[dd]#[dd]db",
+                "7.000..":"dsddqdddbsdqq?(qsddd)?(q)?(q)dddddssdddddddddddddd?(q)bddd#[dd]#[dd]#[dd]#[dd]#[dd]#[dd]#[dd]#[dd]#[dd]#[ddd]#[d]#[d]#[dd]#[dd]#[dd]#[dd]={dqq?(qsddd)?(q)?(q)dddddssdddddddddddddd?(q)bddd#[dd]#[dd]#[dd]#[dd]#[dd]#[dd]#[dd]#[dd]#[dd]#[ddd]#[d]#[d]#[dd]#[dd]#[dd]#[dd]}db",
+            },
+            "fields":{
+                "7.001":"? ? timestamp ? userid ? ? ? ? compressed ? userid1 userid2 ? () ? () ? () ? ? ? ? ? username facebookid stars points diamonds diamonds2 ? ? trophies ? ? ? ? ? ? ? ? () ? ? ? ? storage [] resources [] units [] spells [] unit_upgrades [] spell_upgrades [] hero_upgrades [] hero_health [] hero_state [] alliance_units [unit quantity level] ? [] achievements [] npcprogress [] npc_gold [] npc_elixir [] ? [] ownhomedata {? userid1 userid2 ? () ? () ? () ? ? ? ? ? username facebookid stars points diamonds diamonds2 ? ? trophies ? ? ? ? ? ? ? ? () ? ? ? ? storage [] resources [] units [] spells [] unit_upgrades [] spell_upgrades [] hero_upgrades [] hero_health [] hero_state [] alliance_units [] ? [] achievements [] npcprogress [] npc_gold [] npc_elixir []}",
             },
     },
     24109:{"name":"HomeStatusList"},
     24111:{"name":"AvailableServerCommand"},  # contains embedded command
     24112:{"name":"WaitingToGoHome", "format":"dd"},
     24113:{"name":"VisitedHomeData", "format":{
-        "..6.399":"ddqsddddqq?(qsdd)?(q)?(dddd)dddssddddddddddddddbqbdd#(dd)#(dd)#(dd)#(dd)#(dd)#(dd)#(dd)#(dd)#(dd)#(ddd)#(d)#(d)#(dd)#(dd)#(dd)#(dd)?(dqq)?(qsdd)?(q)?(q)dddddssddddddddddddddbqbdd#(dd)#(dd)#(dd)#(dd)#(dd)#(dd)#(dd)#(dd)#(dd)#(ddd)#(d)#(d)#(dd)#(dd)#(dd)#(dd)",
-        "6.407":"ddqdddbsdqq?(qsdd)?(q)?(dddd)dddssddddddddddddddbqbdd#(dd)#(dd)#(dd)#(dd)#(dd)#(dd)#(dd)#(dd)#(dd)#(ddd)#(d)#(d)#(dd)#(dd)#(dd)#(dd)?(dqq)?(qsdd)?(q)?(q)dddddssddddddddddddddbqbdd#(dd)#(dd)#(dd)#(dd)#(dd)#(dd)#(dd)#(dd)#(dd)#(ddd)#(d)#(d)#(dd)#(dd)#(dd)#(dd)",
-        "7.001..":"ddqdddbsdqq?(qsddd)?(q)?(q)dddddssddddddddddddddbdddbdd#(dd)#(dd)#(dd)#(dd)#(dd)#(dd)#(dd)#(dd)#(dd)#(ddd)#(d)#(d)#(dd)#(dd)#(dd)#(dd)?(dqq)?(qsddd)?(q)?(q)dddddssddddddddddddddbdddbdd#(dd)#(dd)#(dd)#(dd)#(dd)#(dd)#(dd)#(dd)#(dd)#(ddd)#(d)#(d)#(dd)#(dd)#(dd)#(dd)",
-        }
+                "..6.399":"ddqsddddqq?(qsdd)?(q)?(dddd)dddssddddddddddddddbqbdd#(dd)#(dd)#(dd)#(dd)#(dd)#(dd)#(dd)#(dd)#(dd)#(ddd)#(d)#(d)#(dd)#(dd)#(dd)#(dd)?(dqq)?(qsdd)?(q)?(q)dddddssddddddddddddddbqbdd#(dd)#(dd)#(dd)#(dd)#(dd)#(dd)#(dd)#(dd)#(dd)#(ddd)#(d)#(d)#(dd)#(dd)#(dd)#(dd)",
+                "6.407":"ddqdddbsdqq?(qsdd)?(q)?(dddd)dddssddddddddddddddbqbdd#(dd)#(dd)#(dd)#(dd)#(dd)#(dd)#(dd)#(dd)#(dd)#(ddd)#(d)#(d)#(dd)#(dd)#(dd)#(dd)?(dqq)?(qsdd)?(q)?(q)dddddssddddddddddddddbqbdd#(dd)#(dd)#(dd)#(dd)#(dd)#(dd)#(dd)#(dd)#(dd)#(ddd)#(d)#(d)#(dd)#(dd)#(dd)#(dd)",
+                "7.001..":"ddqdddbsdqq?(qsddd)?(q)?(q)dddddssdddddddddddddd?(q)bddd#[dd]#[dd]#[dd]#[dd]#[dd]#[dd]#[dd]#[dd]#[dd]#[ddd]#[d]#[d]#[dd]#[dd]#[dd]#[dd]={bdqq?(qsddd)?(q)?(q)dddddssdddddddddddddd?(q)bddd#[dd]#[dd]#[dd]#[dd]#[dd]#[dd]#[dd]#[dd]#[dd]#[ddd]#[d]#[d]#[dd]#[dd]#[dd]#[dd]}",
+            },
+            "fields":{
+                "7.001":"? ? userid shieldtime ? ? ? compressed ? userid1 userid2 ? () ? () ? () ? ? ? ? ? username facebookid stars points ? ? ? ? trophies ? ? ? ? ? ? ? ? () ? ? ? ? storage [] resources [] units [] spells [] unit_upgrades [] spell_upgrades [] hero_upgrades [] hero_health [] hero_state [] alliance_units [unit quantity level] ? [] achievements [] npcprogress [] npc_gold [] npc_elixir [] ? [] ownhomedata {? ? userid1 userid2 ? () ? () ? () ? ? ? ? ? username facebookid stars points diamonds diamonds2 ? ? trophies ? ? ? ? ? ? ? ? () ? ? ? ? storage [] resources [] units [] spells [] unit_upgrades [] spell_upgrades [] hero_upgrades [] hero_health [] hero_state [] alliance_units [] ? [] achievements [] npcprogress [] npc_gold [] npc_elixir []}",
+            }
     },
     24114:{"name":"HomeBattleReplayData", "format":"ss"},
     24115:{"name":"ServerError"},

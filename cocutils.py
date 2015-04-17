@@ -1,5 +1,6 @@
 import struct
 import zlib
+import json
 """
 Collection of functions used in decoding the CoC protocol
 
@@ -142,7 +143,7 @@ def unpackmessage(fmt, data, o=0):
 
 def makebyte(x):
     return struct.pack(">B", x)
-def makedword(x):
+def makehword(x):
     return struct.pack(">H", x)
 def makedword(x):
     return struct.pack(">L", x)
@@ -268,14 +269,14 @@ def unpackobject(fmt, fields, data, o=0):
             sfmt= subformat(fmt, ifmt)
             ifmt += len(sfmt)+2
             sfld= subformat(fields, ifield)
-            ifield += len(sfld)+2
+            ifield += len(sfld)+3
 
             val, o= unpackobject(sfmt, sfld, data, o)
         elif t=="#":
             sfmt= subformat(fmt, ifmt)
             ifmt += len(sfmt)+2
             sfld= subformat(fields, ifield)
-            ifield += len(sfld)+2
+            ifield += len(sfld)+3
 
             #print "#: '%s'  '%s'" % (sfmt, sfld)
             count, o= getdword(data, o)
@@ -330,21 +331,31 @@ def dumpobj(obj, l=1):
         elif type(v)==type([]):
             print "%s%s: [" % ("  " * l, k)
             for i in range(len(v)):
-                print "%s[%d]=" % ("  " * l, i),
-                dumpobj(v[i], l+1)
+                if type(v[i])==type(obj) and len(vars(v[i]).items()) > 1 or type(v[i])==type([]) and len(v[i]) > 0:
+                    print "%s[%d]=\n" % ("  " * (l+1), i),
+                    dumpobj(v[i], l+2)
+                else:
+                    print "%s[%d]=" % ("  " * (l+1), i),
+                    dumpobj(v[i], 0)
             print "%s]" % ("  " * l)
         elif type(v)==str:
             if v[3:6]=="\x00\x78\x9c":
                 fullsize,= struct.unpack("<L", v[0:4])
                 compdata= v[4:]
                 v= zlib.decompress(compdata, 15, fullsize)
+                if v[0] == '{':
+                    v = json.dumps(json.loads(v), sort_keys=True, indent=4)
+                    v = ("  " * l).join(v.splitlines(True))
             print "%s%s: \"%s\"" % ("  " * l, k, v)
         elif type(v)==int:
             if v>1000000 and (v%1000000)<1000:
                 # print resource id's as decimal
                 print "%s%s: %d" % ("  " * l, k, v)
             else:
-                print "%s%s: 0x%x" % ("  " * l, k, v)
+                if v == 0:
+                    print "%s%s: 0x%x" % ("  " * l, k, v)
+                else:
+                    print "%s%s: 0x%x (%d)" % ("  " * l, k, v, v)
         else:
             print "%s%s: %s" % ("  " * l, k, v)
 
