@@ -289,6 +289,9 @@ def unpackobject(fmt, fields, data, o=0):
         if not keepbitfield:
             bitfield= None
         #print "%d: %d/%d: %s %s\t%s" % (itemnr, ifmt, ifield, t, fn, val)
+        if not hasattr(obj, '__fields'):
+            obj.__fields = []
+        obj.__fields.append(fn)
         setattr(obj, fn, val)
         itemnr += 1
       except Exception, e:
@@ -323,7 +326,14 @@ def dumpobj(obj, l=1):
     """
     recursively pretty print contents of a python object.
     """
-    for k,v in sorted(vars(obj).items()):
+    if hasattr(obj, '__'):
+        print "%s%s" % ("  " * l, obj.__)
+    if hasattr(obj, '__fields'):
+        fields = obj.__fields
+    else:
+        fields = vars(obj).keys()
+    for k in fields:
+        v = getattr(obj, k)
         if type(v)==type(obj):
             print "%s%s: {" % ("  " * l, k)
             dumpobj(v, l+1)
@@ -344,7 +354,7 @@ def dumpobj(obj, l=1):
                 compdata= v[4:]
                 v= zlib.decompress(compdata, 15, fullsize)
                 if v[0] == '{':
-                    v = json.dumps(json.loads(v), sort_keys=True, indent=4)
+                    v = json.dumps(json.loads(v), indent=4)
                     v = ("  " * l).join(v.splitlines(True))
             print "%s%s: \"%s\"" % ("  " * l, k, v)
         elif type(v)==int:
