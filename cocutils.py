@@ -307,6 +307,101 @@ def unpackobject(fmt, fields, data, o=0):
     return obj, o
 
 
+def packobject(fmt, fields, obj, var=None):
+    """
+    create string based on 'fields' and format specified in 'fmt'
+    """
+    data= ""
+    ifmt= 0
+    ifield= 0
+    itemnr= 0
+    bitmask= 0
+
+    while ifmt<len(fmt):
+      try:
+        t= fmt[ifmt]
+        ifmt += 1
+        fn= getfieldname(fields, ifield)
+        ifield += len(fn)+1
+
+        # print "%-10s %s" % (t, fn)
+        tmp = fn
+        if fn=="?":
+            fn= "field_%02d" % (itemnr)
+
+        # print fn
+        debug0 = obj
+        debug1 = fmt[ifmt:ifmt+20]
+        debug2 = fmt[ifmt-20:ifmt+1]
+        debug3 = fields[ifield:ifield+20]
+        debug4 = fields[ifield-20:ifield+len(tmp)]
+        if hasattr(obj, fn):
+            debug5 = getattr(obj, fn)
+        else:
+            debug5 = None
+        keepbitmask= False
+
+        if bitmask > 0:
+            if t!="?":
+                data += makebyte(0)
+        if t=="s":
+            data += makestring(getattr(obj, fn))
+        elif t=="q":
+            data += makeqword(getattr(obj, fn))
+        elif t=="d":
+            data += makedword(getattr(obj, fn))
+        elif t=="h":
+            data += makehword(getattr(obj, fn))
+        elif t=="b":
+            data += makebyte(getattr(obj, fn))
+        elif t=="?":
+            sfmt= subformat(fmt, ifmt)
+            ifmt += len(sfmt)+2
+            sfld= subformat(fields, ifield)
+            ifield += len(sfld)+3
+
+            #print "fmt: '%s'  .. '%s'" % (sfmt, fmt[ifmt:])
+            #print "flp: '%s'  .. '%s'" % (sfld, fields[ifield:])
+
+            if bitmask == 0:
+                bitmask= 1
+            else:
+                bitmask *= 2
+            if hasattr(obj, fn) and getattr(obj, fn) is not None:
+                data += makebyte(bitmask)
+                data += packobject(sfmt, sfld, getattr(obj, fn), var)
+            else:
+                keepbitmask= True
+        elif t=="=":
+            sfmt= subformat(fmt, ifmt)
+            ifmt += len(sfmt)+2
+            sfld= subformat(fields, ifield)
+            ifield += len(sfld)+3
+
+            data += packobject(sfmt, sfld, getattr(obj, fn), var)
+        elif t=="#":
+            sfmt= subformat(fmt, ifmt)
+            ifmt += len(sfmt)+2
+            sfld= subformat(fields, ifield)
+            ifield += len(sfld)+3
+
+            #print "#: '%s'  '%s'" % (sfmt, sfld)
+            count= len(getattr(obj, fn))
+            data += makedword(count)
+            for i in xrange(count):
+                data += packobject(sfmt, sfld, getattr(obj, fn)[i], var)
+        else:
+            raise Exception("unksupported format: %s" % t)
+        if not keepbitmask:
+            bitmask= 0
+        itemnr += 1
+      except Exception, e:
+        print "fmt: %d of %s" % (ifmt, fmt)
+        print "EXCEPTION %s: at %s" % (e, fn)
+        raise
+    return data
+
+
 # "field_1.field_2"  returns obj.field_1.field_2
 # todo: add support for arrays
 def getfield(obj, spec):
@@ -341,12 +436,8 @@ def dumpobj(obj, l=1):
         elif type(v)==type([]):
             print "%s%s: [" % ("  " * l, k)
             for i in range(len(v)):
-                if type(v[i])==type(obj) and len(vars(v[i]).items()) > 1 or type(v[i])==type([]) and len(v[i]) > 0:
-                    print "%s[%d]=\n" % ("  " * (l+1), i),
-                    dumpobj(v[i], l+2)
-                else:
-                    print "%s[%d]=" % ("  " * (l+1), i),
-                    dumpobj(v[i], 0)
+                print "%s[%d]=" % ("  " * (l+1), i)
+                dumpobj(v[i], l+2)
             print "%s]" % ("  " * l)
         elif type(v)==str:
             if v[3:6]=="\x00\x78\x9c":
