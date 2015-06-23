@@ -169,7 +169,7 @@ args = parser.parse_args()
 
 for fn in args.files:
     basename, rest= os.path.splitext(os.path.basename(fn))
-    with open(fn) as fh:
+    with open(fn, "rb") as fh:
         data= fh.read()
         process_sc(data, basename, args.extract)
 
