@@ -39,6 +39,18 @@ namespace cocdp
                 data[k] ^= xor;
             }
         }
+        
+        public void DumpXORStream(int bytesCount = 512)
+        {
+            /* Dump the xorstream, like xorstream.py
+            */
+            for(int i = 0; i < bytesCount; i++)
+            {
+                Console.Write(Encryptor.PRGA().ToString("x2") + " ");
+                if (i % 32 == 31)
+                    Console.WriteLine();
+            }
+        }
 
         public void UpdateChipers(ulong clientSeed, byte[] serverNonce)
         {
