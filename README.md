@@ -13,11 +13,8 @@
 
 # links
 
-* androidgamehacks [forum thread](http://www.androidgamehacks.net/forums/showthread.php?tid=33923): "COC SSL DECRYPTION..WHO KNOWS??"
-   * note: coc does not use ssl.
-* androidgamehacks [forum thread](http://www.androidgamehacks.net/forums/showthread.php?tid=27679): "Clash of Clans [HACKING DISCUSSION/IDEAS]"
-* androidgamehacks [forum thread](http://www.androidgamehacks.net/forums/showthread.php?tid=33118): "clash of clans libg.so (functions renamed) ida database"
-* [CoCDevForum](http://cocdevforum.ml/)
+* [RedMoon](https://forum.redmoon.io/)
+  * Replaces [CoCDevForum](http://cocdevteam.com/cocdevteam.com/forum/archive/index.html) (archive link)
 * [Cube Core](http://cube-core.cf/)
 * [The Bytecode Club](https://the.bytecode.club/)
 * [UltraPowa](http://www.ultrapowa.com/forum)
